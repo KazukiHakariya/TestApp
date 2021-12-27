@@ -1,6 +1,7 @@
 package com.example.testapp2;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
-*/
-
+ */
+/*
 // fragment screen transition
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -41,5 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
         Button returnButton = findViewById(R.id.return_button);
         returnButton.setOnClickListener(v -> setScreenMain());
+    }
+}
+ */
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.databasetest);
+
+        // Asyncタスククラスのインスタンスを作成し、実行する
+        TaskDbConnect task = new TaskDbConnect(MainActivity.this);
+        task.execute();
     }
 }

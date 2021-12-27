@@ -1,25 +1,13 @@
 package com.example.testapp2;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.widget.TextView;
+
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.DriverManager;
-import android.app.Activity;
-import android.widget.TextView;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class TestDatabase extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Asyncタスククラスのインスタンスを作成し、実行する
-        TaskDbConnect task = new TaskDbConnect(TestDatabase.this);
-        task.execute();
-    }
-}
 
 class TaskDbConnect extends AsyncTask<Void, Void, String>{
     // この中をこれから記述
