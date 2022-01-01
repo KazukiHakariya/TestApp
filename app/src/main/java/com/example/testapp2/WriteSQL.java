@@ -79,7 +79,8 @@ public class WriteSQL extends AsyncTask<String, String, String> {
     }
 
     @Override
-    protected void onPostExecute(String str) {
+    protected void onPostExecute(String str) {//受けっとったデータをどうするかの処理
+        //ここでは画面中心のテキストを書き換えて出力するようにしている
         TextView tv = (TextView)activity.findViewById(R.id.textview1);
         tv.setText(str);//画面に出力
     }
