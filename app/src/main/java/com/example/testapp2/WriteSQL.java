@@ -1,3 +1,4 @@
+//SQLへAPIを介して接続する
 package com.example.testapp2;
 
 import android.app.Activity;
@@ -74,13 +75,13 @@ public class WriteSQL {
     }
 
     public String execute(String query) throws ExecutionException, InterruptedException {
-        SQLCode = query;
+        SQLCode = query;//実行するSQL文を設定
 
         onPreExecute();//前処理の実行
 
         ExecutorService executorService  = Executors.newSingleThreadExecutor();//スレッドの生成
         Future<String> result = executorService.submit(new AsyncRunnable());//タスクの実行
-        return result.get();
+        return result.get();//実行結果を文字列として返す
     }
 
     protected void onPreExecute() {
