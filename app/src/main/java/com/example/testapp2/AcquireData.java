@@ -20,7 +20,7 @@ public class AcquireData extends AppCompatActivity {
         //以下取り出し部分
         String jsonResult = new String();//JSON文字列を作る
         JSONArray Jarray;//json文字列をJSONオブジェクトに直すときに使う
-        WriteSQL SQLNewestFunction = new WriteSQL();//SQL文を実行するためのAPIへのアクセス
+        MySQLConnect SQLNewestFunction = new MySQLConnect();//SQL文を実行するためのAPIへのアクセス
         //アクセスを行うごとにWriteSQL型のコンストラクタを作成する必要がある
 
         String data = new String();//
