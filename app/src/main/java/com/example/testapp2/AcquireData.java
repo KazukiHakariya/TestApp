@@ -20,15 +20,14 @@ public class AcquireData extends AppCompatActivity {
         //以下取り出し部分
         String jsonResult = new String();//JSON文字列を作る
         JSONArray Jarray;//json文字列をJSONオブジェクトに直すときに使う
-        String JSONerror = "JSONerror";//正しくJSON形式になっていないとき
         WriteSQL SQLNewestFunction = new WriteSQL();//SQL文を実行するためのAPIへのアクセス
+        //アクセスを行うごとにWriteSQL型のコンストラクタを作成する必要がある
 
         String data = new String();//
-        String[][] resultStr = new String[30][6];//APIから受け取ったデータの格納用
 
         String query_newest = "SELECT * FROM user";//実行するSQL文
         try {
-            jsonResult = SQLNewestFunction.execute(query_newest);//SQL文を実行
+            jsonResult = SQLNewestFunction.execute(query_newest);//SQL文を実行,結果をJSON形式の文字列として格納
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -50,8 +49,8 @@ public class AcquireData extends AppCompatActivity {
             //    resultStr[i][5] = Jarray.getJSONObject(i).getString("account_type");
             //}
         } catch(JSONException e){
+            //JSONArray型から正しくデータが抜き出せなかった場合の処理
             e.printStackTrace();
-            resultStr[0][0] = JSONerror;//適切な形で受け取れなかった時の出力
         }
     }
 }
