@@ -27,8 +27,6 @@ public class WriteSQL {
 
     String connectionerror = "connectionerror";//通信に失敗したとき
 
-    Activity activity;
-
     public class AsyncRunnable implements Callable<String> {
         Handler handler = new Handler(Looper.getMainLooper());
 
